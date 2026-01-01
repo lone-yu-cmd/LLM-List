@@ -1,0 +1,133 @@
+{
+  "id": "openai",
+  "name": "OpenAI",
+  "description": "The AI research and deployment company behind GPT models.",
+  "website": "https://openai.com",
+  "docs_url": "https://platform.openai.com/docs/api-reference",
+  "api_config": {
+    "protocol": "rest",
+    "protocol_format": "openai",
+    "base_url": "https://api.openai.com/v1",
+    "auth": {
+      "type": "api_key",
+      "header_key": "Authorization",
+      "token_prefix": "Bearer",
+      "env_var_suggestion": "OPENAI_API_KEY"
+    },
+    "endpoints": {
+      "chat": {
+        "path": "/chat/completions",
+        "method": "POST",
+        "supports_stream": true
+      },
+      "embeddings": {
+        "path": "/embeddings",
+        "method": "POST"
+      },
+      "models": {
+        "path": "/models",
+        "method": "GET"
+      }
+    }
+  },
+  "models": [
+    {
+      "id": "gpt-5.2",
+      "name": "GPT-5.2",
+      "type": "chat",
+      "description": "The best model for coding and agentic tasks across industries.",
+      "features": ["coding", "agentic"]
+    },
+    {
+      "id": "gpt-5.2-pro",
+      "name": "GPT-5.2 Pro",
+      "type": "chat",
+      "description": "Version of GPT-5.2 that produces smarter and more precise responses.",
+      "features": ["coding", "agentic", "precise"]
+    },
+    {
+      "id": "gpt-5",
+      "name": "GPT-5",
+      "type": "chat",
+      "description": "Previous intelligent reasoning model for coding and agentic tasks with configurable reasoning effort.",
+      "features": ["reasoning", "coding", "agentic"]
+    },
+    {
+      "id": "gpt-5-mini",
+      "name": "GPT-5 Mini",
+      "type": "chat",
+      "description": "A faster, cost-efficient version of GPT-5 for well-defined tasks.",
+      "features": ["fast", "cost-efficient"]
+    },
+    {
+      "id": "gpt-5-nano",
+      "name": "GPT-5 Nano",
+      "type": "chat",
+      "description": "Fastest, most cost-efficient version of GPT-5.",
+      "features": ["fastest", "cost-efficient"]
+    },
+    {
+      "id": "gpt-4.1",
+      "name": "GPT-4.1",
+      "type": "chat",
+      "description": "Smartest non-reasoning model.",
+      "features": ["non-reasoning"]
+    },
+    {
+      "id": "gpt-oss-120b",
+      "name": "GPT-OSS 120B",
+      "type": "chat",
+      "description": "Most powerful open-weight model, fits into an H100 GPU.",
+      "features": ["open-weight"]
+    },
+    {
+      "id": "gpt-oss-20b",
+      "name": "GPT-OSS 20B",
+      "type": "chat",
+      "description": "Medium-sized open-weight model for low latency.",
+      "features": ["open-weight", "low-latency"]
+    },
+    {
+      "id": "o3-deep-research",
+      "name": "o3 Deep Research",
+      "type": "chat",
+      "description": "Our most powerful deep research model.",
+      "features": ["research"]
+    },
+    {
+      "id": "o4-mini-deep-research",
+      "name": "o4 Mini Deep Research",
+      "type": "chat",
+      "description": "Faster, more affordable deep research model.",
+      "features": ["research", "fast"]
+    },
+    {
+      "id": "sora-2",
+      "name": "Sora 2",
+      "type": "video",
+      "description": "Flagship video generation with synced audio.",
+      "features": ["video", "audio"]
+    },
+    {
+      "id": "sora-2-pro",
+      "name": "Sora 2 Pro",
+      "type": "video",
+      "description": "Most advanced synced-audio video generation.",
+      "features": ["video", "audio", "advanced"]
+    },
+    {
+      "id": "gpt-image-1.5",
+      "name": "GPT Image 1.5",
+      "type": "image",
+      "description": "State-of-the-art image generation model.",
+      "features": ["image-generation"]
+    },
+    {
+      "id": "gpt-realtime",
+      "name": "GPT Realtime",
+      "type": "chat",
+      "description": "Model capable of realtime text and audio inputs and outputs.",
+      "features": ["realtime", "audio", "text"]
+    }
+  ]
+}

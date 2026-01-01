@@ -1,0 +1,27 @@
+{
+  "name": "llm-list",
+  "version": "1.0.0",
+  "description": "A standardized open-source registry for LLM providers and API configurations.",
+  "scripts": {
+    "build": "python3 scripts/build_registry.py",
+    "validate:format": "python3 scripts/validate_format.py",
+    "crawl": "python3 scripts/crawl_api_docs.py",
+    "scrape": "python3 scripts/scrape_content.py",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/LLM-List.git"
+  },
+  "keywords": [
+    "llm",
+    "registry",
+    "openai",
+    "anthropic",
+    "zhipuai",
+    "ai-models"
+  ],
+  "author": "LLMList Contributors",
+  "license": "MIT",
+  "private": true
+}

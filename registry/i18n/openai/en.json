@@ -1,0 +1,14 @@
+{
+  "400": "Bad Request - The request was unacceptable, often due to missing a required parameter.",
+  "401": "Unauthorized - No valid API key provided.",
+  "403": "Forbidden - The API key does not have permissions to perform the request.",
+  "404": "Not Found - The requested resource doesn't exist.",
+  "429": "Too Many Requests - Rate limit reached or quota exceeded.",
+  "500": "Internal Server Error - Something went wrong on OpenAI's side.",
+  "503": "Service Unavailable - The OpenAI server is currently overloaded.",
+  "context_length_exceeded": "The model's maximum context length is exceeded.",
+  "invalid_request_error": "Invalid request parameters.",
+  "rate_limit_exceeded": "Rate limit exceeded.",
+  "insufficient_quota": "You have exceeded your current quota, please check your plan and billing details.",
+  "model_not_found": "The model does not exist or you do not have access to it."
+}
