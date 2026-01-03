@@ -23,5 +23,8 @@
   ],
   "author": "LLMList Contributors",
   "license": "MIT",
-  "private": true
+  "private": true,
+  "dependencies": {
+    "llm-list-js": "github:lone-yu-cmd/LLM-List-JS-SDK"
+  }
 }
