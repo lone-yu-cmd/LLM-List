@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Add specifications for Core Registry and DeepSeek integration
 
 ### Added
+- Implement automated skills README generation and update script
 - Add connectivity verification to registry-validator skill
 - Add auto-committer skill for automated workflows
 - Update Zhipu AI with Embedding-3, Rerank, and other models
