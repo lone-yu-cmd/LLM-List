@@ -1,0 +1,49 @@
+{
+  "id": "deepseek",
+  "name": "DeepSeek",
+  "description": "DeepSeek is an AI research company known for its open-source models and reasoning capabilities.",
+  "website": "https://www.deepseek.com",
+  "docs_url": "https://api-docs.deepseek.com",
+  "api_config": {
+    "protocol": "rest",
+    "protocol_format": "openai",
+    "base_url": "https://api.deepseek.com",
+    "auth": {
+      "type": "api_key",
+      "header_key": "Authorization",
+      "token_prefix": "Bearer",
+      "env_var_suggestion": "DEEPSEEK_API_KEY"
+    },
+    "endpoints": {
+      "chat": {
+        "path": "/chat/completions",
+        "method": "POST",
+        "supports_stream": true
+      },
+      "models": {
+        "path": "/models",
+        "method": "GET"
+      }
+    }
+  },
+  "models": [
+    {
+      "id": "deepseek-chat",
+      "name": "DeepSeek-V3",
+      "type": "chat",
+      "description": "DeepSeek-V3 is a strong, versatile model for general tasks, coding, and chat.",
+      "context_window": 128000,
+      "max_output_tokens": 8192,
+      "features": ["chat", "coding", "tool-use", "json-mode"]
+    },
+    {
+      "id": "deepseek-reasoner",
+      "name": "DeepSeek-R1",
+      "type": "chat",
+      "description": "DeepSeek-R1 is a reasoning model optimized for complex logic, math, and coding tasks.",
+      "context_window": 128000,
+      "max_output_tokens": 65536,
+      "features": ["reasoning", "math", "coding"]
+    }
+  ]
+}

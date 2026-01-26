@@ -1,0 +1,85 @@
+{
+  "id": "google",
+  "name": "Google",
+  "description": "Google's multimodal AI models, including Gemini.",
+  "website": "https://ai.google.dev",
+  "docs_url": "https://ai.google.dev/gemini-api/docs",
+  "api_config": {
+    "protocol": "rest",
+    "protocol_format": "google_gemini",
+    "base_url": "https://generativelanguage.googleapis.com/v1beta",
+    "auth": {
+      "type": "api_key",
+      "param_location": "query",
+      "param_key": "key",
+      "env_var_suggestion": "GOOGLE_API_KEY"
+    },
+    "endpoints": {
+      "generate_content": {
+        "path": "/models/{model}:generateContent",
+        "method": "POST",
+        "supports_stream": true
+      },
+      "models": {
+        "path": "/models",
+        "method": "GET"
+      }
+    }
+  },
+  "models": [
+    {
+      "id": "gemini-3-pro-preview",
+      "name": "Gemini 3 Pro Preview",
+      "type": "chat",
+      "description": "Next-generation model with dynamic thinking and granular media control.",
+      "features": ["multimodal", "thinking", "long-context"],
+      "context_window": 1000000,
+      "max_output_tokens": 64000
+    },
+    {
+      "id": "gemini-2.5-pro",
+      "name": "Gemini 2.5 Pro",
+      "type": "chat",
+      "description": "High-capability model for complex reasoning and coding.",
+      "features": ["multimodal", "reasoning", "coding"],
+      "context_window": 1000000,
+      "max_output_tokens": 8192
+    },
+    {
+      "id": "gemini-2.5-flash",
+      "name": "Gemini 2.5 Flash",
+      "type": "chat",
+      "description": "Designed for real-time, bidirectional streaming with Gemini Live API.",
+      "features": ["multimodal", "fast", "real-time"],
+      "context_window": 1000000,
+      "max_output_tokens": 8192
+    },
+    {
+      "id": "gemini-1.5-pro",
+      "name": "Gemini 1.5 Pro",
+      "type": "chat",
+      "description": "Mid-size multimodal model with massive 2M token context window.",
+      "features": ["multimodal", "long-context"],
+      "context_window": 2000000,
+      "max_output_tokens": 8192
+    },
+    {
+      "id": "gemini-1.5-flash",
+      "name": "Gemini 1.5 Flash",
+      "type": "chat",
+      "description": "Fast and versatile multimodal model for high-frequency tasks.",
+      "features": ["multimodal", "fast"],
+      "context_window": 1000000,
+      "max_output_tokens": 8192
+    },
+    {
+      "id": "gemma-3",
+      "name": "Gemma 3",
+      "type": "chat",
+      "description": "Open model featuring text and image input with 128K context.",
+      "features": ["open-weight", "text-to-image"],
+      "context_window": 128000,
+      "max_output_tokens": 8192
+    }
+  ]
+}

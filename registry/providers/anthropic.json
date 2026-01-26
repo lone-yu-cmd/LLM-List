@@ -1,0 +1,71 @@
+{
+  "id": "anthropic",
+  "name": "Anthropic",
+  "description": "AI safety and research company, creator of Claude.",
+  "website": "https://www.anthropic.com",
+  "docs_url": "https://docs.anthropic.com/claude/reference/getting-started-with-the-api",
+  "api_config": {
+    "protocol": "rest",
+    "protocol_format": "anthropic",
+    "base_url": "https://api.anthropic.com/v1",
+    "auth": {
+      "type": "api_key",
+      "header_key": "x-api-key",
+      "env_var_suggestion": "ANTHROPIC_API_KEY"
+    },
+    "endpoints": {
+      "messages": {
+        "path": "/messages",
+        "method": "POST",
+        "supports_stream": true
+      }
+    }
+  },
+  "models": [
+    {
+      "id": "claude-sonnet-4-5-20250929",
+      "name": "Claude 4.5 Sonnet",
+      "type": "chat",
+      "description": "High-intelligence model with structured output support and context management.",
+      "features": ["vision", "function_calling", "structured_outputs", "thinking"],
+      "context_window": 200000,
+      "max_output_tokens": 8192
+    },
+    {
+      "id": "claude-3-7-sonnet-20250219",
+      "name": "Claude 3.7 Sonnet",
+      "type": "chat",
+      "description": "Balanced model for enterprise workloads.",
+      "features": ["vision", "function_calling"],
+      "context_window": 200000,
+      "max_output_tokens": 8192
+    },
+    {
+      "id": "claude-3-5-sonnet-20240620",
+      "name": "Claude 3.5 Sonnet",
+      "type": "chat",
+      "description": "Previous generation high-performance model.",
+      "features": ["vision", "function_calling"],
+      "context_window": 200000,
+      "max_output_tokens": 8192
+    },
+    {
+      "id": "claude-3-opus-20240229",
+      "name": "Claude 3 Opus",
+      "type": "chat",
+      "description": "Most powerful model for highly complex tasks.",
+      "features": ["vision", "function_calling"],
+      "context_window": 200000,
+      "max_output_tokens": 4096
+    },
+    {
+      "id": "claude-3-haiku-20240307",
+      "name": "Claude 3 Haiku",
+      "type": "chat",
+      "description": "Fastest and most compact model for near-instant responsiveness.",
+      "features": ["vision", "function_calling"],
+      "context_window": 200000,
+      "max_output_tokens": 4096
+    }
+  ]
+}

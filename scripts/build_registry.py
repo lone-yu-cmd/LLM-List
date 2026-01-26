@@ -85,11 +85,20 @@ def merge_registry():
             json.dump(registry, f, indent=2, ensure_ascii=False)
         print(f"\nSuccessfully generated {output_path}")
 
-        # Also copy to JS SDK directory for self-contained package
-        js_sdk_path = os.path.join(root_dir, 'sdks', 'js', 'llm_registry.json')
-        with open(js_sdk_path, 'w', encoding='utf-8') as f:
-            json.dump(registry, f, indent=2, ensure_ascii=False)
-        print(f"Successfully synced to {js_sdk_path}")
+        # Distribute to SDKs
+        sdk_targets = [
+            os.path.join(root_dir, 'sdks', 'js', 'llm_registry.json'),
+            os.path.join(root_dir, 'sdks', 'python', 'llm_list', 'llm_registry.json'),
+            os.path.join(root_dir, 'sdks', 'go', 'llm_registry.json')
+        ]
+
+        for target_path in sdk_targets:
+            # Ensure the directory exists
+            os.makedirs(os.path.dirname(target_path), exist_ok=True)
+            
+            with open(target_path, 'w', encoding='utf-8') as f:
+                json.dump(registry, f, indent=2, ensure_ascii=False)
+            print(f"Successfully synced to {os.path.relpath(target_path, root_dir)}")
 
         print(f"Total providers: {len(registry['providers'])}")
     except Exception as e:

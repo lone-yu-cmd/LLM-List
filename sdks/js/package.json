@@ -1,0 +1,15 @@
+{
+  "name": "llm-list",
+  "version": "1.0.0",
+  "description": "Standardized LLM registry data",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Tests are managed in root scripts/test_registry_data.py\" && exit 0"
+  },
+  "keywords": [
+    "llm",
+    "registry"
+  ],
+  "author": "LLMList Contributors",
+  "license": "MIT"
+}

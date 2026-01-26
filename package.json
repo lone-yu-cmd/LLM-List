@@ -7,7 +7,7 @@
     "validate:format": "python3 scripts/validate_format.py",
     "crawl": "python3 scripts/crawl_api_docs.py",
     "scrape": "python3 scripts/scrape_content.py",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "python3 scripts/test_registry_data.py"
   },
   "repository": {
     "type": "git",
@@ -24,7 +24,5 @@
   "author": "LLMList Contributors",
   "license": "MIT",
   "private": true,
-  "dependencies": {
-    "llm-list-js": "github:lone-yu-cmd/LLM-List-JS-SDK"
-  }
+  "dependencies": {}
 }
