@@ -4,6 +4,15 @@ import sys
 import urllib.request
 import urllib.error
 import urllib.parse
+try:
+    from dotenv import load_dotenv
+    # Load .env from project root (4 levels up from this script)
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    root_dir = os.path.abspath(os.path.join(current_dir, '../../../../'))
+    env_path = os.path.join(root_dir, '.env')
+    load_dotenv(env_path)
+except ImportError:
+    pass # Assume env vars are set manually if dotenv not present
 
 def load_registry():
     """Load the registry file."""
@@ -58,12 +67,27 @@ def verify_provider(provider):
         "Content-Type": "application/json"
     }
     
-    # Add Auth Header
-    header_key = auth_config.get('header_key', 'Authorization')
-    token_prefix = auth_config.get('token_prefix', 'Bearer')
-    headers[header_key] = f"{token_prefix} {api_key}".strip()
+    # Auth Handling
+    param_location = auth_config.get('param_location', 'header')
+    
+    if param_location == 'query':
+        param_key = auth_config.get('param_key', 'key')
+        # Append to URL
+        if '?' in target_url:
+            target_url += f"&{param_key}={api_key}"
+        else:
+            target_url += f"?{param_key}={api_key}"
+    else:
+        # Default to Header
+        header_key = auth_config.get('header_key', 'Authorization')
+        token_prefix = auth_config.get('token_prefix', 'Bearer')
+        if token_prefix:
+            headers[header_key] = f"{token_prefix} {api_key}".strip()
+        else:
+            headers[header_key] = api_key
 
     print(f"Testing URL: {target_url}")
+    print(f"Method: {method}")
     
     try:
         req = urllib.request.Request(target_url, headers=headers, method=method)
@@ -71,6 +95,47 @@ def verify_provider(provider):
             status = response.status
             if 200 <= status < 300:
                 print(f"✅ Success: Connection established (Status {status})")
+                
+                # --- Model Verification Logic ---
+                try:
+                    resp_body = response.read().decode('utf-8')
+                    resp_json = json.loads(resp_body)
+                    
+                    remote_models = set()
+                    
+                    # Normalize remote model list
+                    # OpenAI/DeepSeek/Zhipu: {"data": [{"id": "..."}]}
+                    if "data" in resp_json and isinstance(resp_json["data"], list):
+                        for m in resp_json["data"]:
+                            if "id" in m:
+                                remote_models.add(m["id"])
+                    # Google: {"models": [{"name": "models/..."}]}
+                    elif "models" in resp_json and isinstance(resp_json["models"], list):
+                        for m in resp_json["models"]:
+                            if "name" in m:
+                                # Google returns "models/gemini-pro", strip prefix
+                                name = m["name"].split('/')[-1]
+                                remote_models.add(name)
+                    
+                    if not remote_models:
+                        print("   ⚠️  Warning: Could not parse models from response or list is empty.")
+                    else:
+                        print(f"   ℹ️  Retrieved {len(remote_models)} models from provider.")
+                        
+                        # Compare with local registry
+                        local_models = provider.get('models', [])
+                        print("   --- Verifying Local Models ---")
+                        for local_m in local_models:
+                            lid = local_m['id']
+                            if lid in remote_models:
+                                print(f"   ✅ Model found: {lid}")
+                            else:
+                                print(f"   ❌ Model missing in remote: {lid}")
+                                
+                except Exception as e:
+                    print(f"   ⚠️  Warning: Failed to verify models - {str(e)}")
+                # --------------------------------
+                
                 return True
             else:
                 print(f"❌ Failed: HTTP Status {status}")
