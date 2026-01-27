@@ -6,6 +6,18 @@
   "scripts": {
     "test": "node test/verify.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lone-yu-cmd/LLM-List.git",
+    "directory": "sdks/js"
+  },
+  "bugs": {
+    "url": "https://github.com/lone-yu-cmd/LLM-List/issues"
+  },
+  "homepage": "https://github.com/lone-yu-cmd/LLM-List/tree/main/sdks/js#readme",
+  "publishConfig": {
+    "access": "public"
+  },
   "keywords": [
     "llm",
     "registry"

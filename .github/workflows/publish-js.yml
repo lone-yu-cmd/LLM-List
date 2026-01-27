@@ -1,0 +1,30 @@
+name: Publish JS SDK
+
+on:
+  release:
+    types: [created]
+  workflow_dispatch:
+
+jobs:
+  publish-npm:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          registry-url: 'https://registry.npmjs.org'
+      
+      - name: Install Dependencies
+        working-directory: ./sdks/js
+        run: npm ci || npm install
+
+      - name: Verify Tests
+        working-directory: ./sdks/js
+        run: npm test
+
+      - name: Publish to NPM
+        working-directory: ./sdks/js
+        run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

@@ -1,0 +1,12 @@
+# Development
+test/
+.gitignore
+.npmignore
+
+# CI
+.github/
+
+# Editor
+.vscode/
+.idea/
+.DS_Store

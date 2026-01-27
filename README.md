@@ -60,7 +60,8 @@ pip install "git+https://github.com/lone-yu-cmd/LLM-List.git#subdirectory=sdks/p
 
 **Node.js**
 ```bash
-npm install github:lone-yu-cmd/LLM-List#subdirectory=sdks/js
+# 推荐：本地安装
+npm install ./path/to/LLM-List/sdks/js
 ```
 
 **Go**
