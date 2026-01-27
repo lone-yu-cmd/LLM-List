@@ -25,8 +25,35 @@
             "method": "POST",
             "supports_stream": true
           }
-        }
+        },
+        "error_codes": [
+          {
+            "code": "400",
+            "description": "Invalid Request"
+          },
+          {
+            "code": "401",
+            "description": "Authentication Error"
+          },
+          {
+            "code": "403",
+            "description": "Permission Error"
+          },
+          {
+            "code": "429",
+            "description": "Rate Limit Error"
+          },
+          {
+            "code": "500",
+            "description": "Api Error"
+          },
+          {
+            "code": "529",
+            "description": "Overloaded Error"
+          }
+        ]
       },
+      "pricing_currency": "USD",
       "models": [
         {
           "id": "claude-sonnet-4-5-20250929",
@@ -118,8 +145,39 @@
             "path": "/models",
             "method": "GET"
           }
-        }
+        },
+        "error_codes": [
+          {
+            "code": "400",
+            "description": "Validation Error"
+          },
+          {
+            "code": "401",
+            "description": "Authentication Failed"
+          },
+          {
+            "code": "402",
+            "description": "Insufficient Balance"
+          },
+          {
+            "code": "422",
+            "description": "Invalid Parameters"
+          },
+          {
+            "code": "429",
+            "description": "Rate Limit Exceeded"
+          },
+          {
+            "code": "500",
+            "description": "Server Error"
+          },
+          {
+            "code": "503",
+            "description": "Server Overloaded"
+          }
+        ]
       },
+      "pricing_currency": "USD",
       "models": [
         {
           "id": "deepseek-chat",
@@ -176,8 +234,35 @@
             "path": "/models",
             "method": "GET"
           }
-        }
+        },
+        "error_codes": [
+          {
+            "code": "400",
+            "description": "Invalid Argument"
+          },
+          {
+            "code": "403",
+            "description": "Permission Denied"
+          },
+          {
+            "code": "404",
+            "description": "Not Found"
+          },
+          {
+            "code": "429",
+            "description": "Resource Exhausted"
+          },
+          {
+            "code": "500",
+            "description": "Internal Error"
+          },
+          {
+            "code": "503",
+            "description": "Service Unavailable"
+          }
+        ]
       },
+      "pricing_currency": "USD",
       "models": [
         {
           "id": "gemini-3-pro-preview",
@@ -286,8 +371,35 @@
             "path": "/models",
             "method": "GET"
           }
-        }
+        },
+        "error_codes": [
+          {
+            "code": "400",
+            "description": "Bad Request"
+          },
+          {
+            "code": "401",
+            "description": "Unauthorized"
+          },
+          {
+            "code": "403",
+            "description": "Forbidden"
+          },
+          {
+            "code": "429",
+            "description": "Rate Limit Exceeded"
+          },
+          {
+            "code": "500",
+            "description": "Internal Server Error"
+          },
+          {
+            "code": "503",
+            "description": "Service Unavailable"
+          }
+        ]
       },
+      "pricing_currency": "USD",
       "models": [
         {
           "id": "gpt-5.2",
@@ -297,7 +409,9 @@
           "features": [
             "coding",
             "agentic"
-          ]
+          ],
+          "context_window": 200000,
+          "max_output_tokens": 16384
         },
         {
           "id": "gpt-5.2-pro",
@@ -308,7 +422,9 @@
             "coding",
             "agentic",
             "precise"
-          ]
+          ],
+          "context_window": 200000,
+          "max_output_tokens": 16384
         },
         {
           "id": "gpt-5",
@@ -319,7 +435,9 @@
             "reasoning",
             "coding",
             "agentic"
-          ]
+          ],
+          "context_window": 128000,
+          "max_output_tokens": 16384
         },
         {
           "id": "gpt-5-mini",
@@ -329,7 +447,9 @@
           "features": [
             "fast",
             "cost-efficient"
-          ]
+          ],
+          "context_window": 128000,
+          "max_output_tokens": 16384
         },
         {
           "id": "gpt-5-nano",
@@ -339,7 +459,9 @@
           "features": [
             "fastest",
             "cost-efficient"
-          ]
+          ],
+          "context_window": 32768,
+          "max_output_tokens": 4096
         },
         {
           "id": "gpt-4.1",
@@ -348,7 +470,9 @@
           "description": "Smartest non-reasoning model.",
           "features": [
             "non-reasoning"
-          ]
+          ],
+          "context_window": 128000,
+          "max_output_tokens": 16384
         },
         {
           "id": "gpt-oss-120b",
@@ -357,7 +481,9 @@
           "description": "Most powerful open-weight model, fits into an H100 GPU.",
           "features": [
             "open-weight"
-          ]
+          ],
+          "context_window": 128000,
+          "max_output_tokens": 4096
         },
         {
           "id": "gpt-oss-20b",
@@ -367,7 +493,9 @@
           "features": [
             "open-weight",
             "low-latency"
-          ]
+          ],
+          "context_window": 32768,
+          "max_output_tokens": 4096
         },
         {
           "id": "o3-deep-research",
@@ -376,7 +504,9 @@
           "description": "Our most powerful deep research model.",
           "features": [
             "research"
-          ]
+          ],
+          "context_window": 200000,
+          "max_output_tokens": 32768
         },
         {
           "id": "o4-mini-deep-research",
@@ -386,7 +516,9 @@
           "features": [
             "research",
             "fast"
-          ]
+          ],
+          "context_window": 128000,
+          "max_output_tokens": 16384
         },
         {
           "id": "sora-2",
@@ -427,7 +559,9 @@
             "realtime",
             "audio",
             "text"
-          ]
+          ],
+          "context_window": 128000,
+          "max_output_tokens": 4096
         }
       ]
     },

@@ -1,0 +1,8 @@
+{
+  "400": "Invalid Argument",
+  "403": "Permission Denied",
+  "404": "Not Found",
+  "429": "Resource Exhausted",
+  "500": "Internal Error",
+  "503": "Service Unavailable"
+}

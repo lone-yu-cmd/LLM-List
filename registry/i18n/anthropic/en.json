@@ -1,0 +1,8 @@
+{
+  "400": "Invalid Request",
+  "401": "Authentication Error",
+  "403": "Permission Error",
+  "429": "Rate Limit Error",
+  "500": "Api Error",
+  "529": "Overloaded Error"
+}

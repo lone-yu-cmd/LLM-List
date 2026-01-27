@@ -24,8 +24,18 @@
         "path": "/models",
         "method": "GET"
       }
-    }
+    },
+    "error_codes": [
+      { "code": "400", "description": "Validation Error" },
+      { "code": "401", "description": "Authentication Failed" },
+      { "code": "402", "description": "Insufficient Balance" },
+      { "code": "422", "description": "Invalid Parameters" },
+      { "code": "429", "description": "Rate Limit Exceeded" },
+      { "code": "500", "description": "Server Error" },
+      { "code": "503", "description": "Server Overloaded" }
+    ]
   },
+  "pricing_currency": "USD",
   "models": [
     {
       "id": "deepseek-chat",

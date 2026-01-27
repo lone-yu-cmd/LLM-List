@@ -24,8 +24,17 @@
         "path": "/models",
         "method": "GET"
       }
-    }
+    },
+    "error_codes": [
+      { "code": "400", "description": "Invalid Argument" },
+      { "code": "403", "description": "Permission Denied" },
+      { "code": "404", "description": "Not Found" },
+      { "code": "429", "description": "Resource Exhausted" },
+      { "code": "500", "description": "Internal Error" },
+      { "code": "503", "description": "Service Unavailable" }
+    ]
   },
+  "pricing_currency": "USD",
   "models": [
     {
       "id": "gemini-3-pro-preview",

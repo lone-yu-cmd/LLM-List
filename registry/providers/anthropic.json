@@ -19,8 +19,17 @@
         "method": "POST",
         "supports_stream": true
       }
-    }
+    },
+    "error_codes": [
+      { "code": "400", "description": "Invalid Request" },
+      { "code": "401", "description": "Authentication Error" },
+      { "code": "403", "description": "Permission Error" },
+      { "code": "429", "description": "Rate Limit Error" },
+      { "code": "500", "description": "Api Error" },
+      { "code": "529", "description": "Overloaded Error" }
+    ]
   },
+  "pricing_currency": "USD",
   "models": [
     {
       "id": "claude-sonnet-4-5-20250929",

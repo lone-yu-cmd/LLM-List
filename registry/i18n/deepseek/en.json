@@ -1,0 +1,9 @@
+{
+  "400": "Validation Error",
+  "401": "Authentication Failed",
+  "402": "Insufficient Balance",
+  "422": "Invalid Parameters",
+  "429": "Rate Limit Exceeded",
+  "500": "Server Error",
+  "503": "Server Overloaded"
+}
