@@ -15,13 +15,14 @@ To ensure that:
     - `sdks/go/`
     - `sdks/js/`
     - `sdks/python/`
+4.  The generated SDKs are verified by running internal tests for each language.
 
 ## Instructions
 
 When this skill is invoked:
 
 1.  **Execute Build Script**:
-    Run the following command, which now handles schema generation AND registry distribution:
+    Run the following command, which handles schema generation, registry distribution, and verification:
     ```bash
     python3 scripts/build_registry.py
     ```
@@ -30,6 +31,7 @@ When this skill is invoked:
     -   Check for "Generating updated JSON Schema...".
     -   Check for "Successfully generated llm_registry.json".
     -   Confirm it reports syncing **registry and schema** to all 3 SDKs.
+    -   **CRITICAL**: Check for "Running SDK Verification...". Ensure all 3 SDKs (JS, Python, Go) report "Verified".
 
 3.  **Optional Validation**:
     -   If the build fails, analyze the error (JSON syntax errors are common).

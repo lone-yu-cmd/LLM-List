@@ -17,6 +17,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Add specifications for Core Registry and DeepSeek integration
 
 ### Added
+- add SDK verification tests and documentation
 - implement registry-syncer skill, auto-generate schema, and migrate SDK data files
 - implement comprehensive connectivity and model availability verification
 - Implement automated skills README generation and update script

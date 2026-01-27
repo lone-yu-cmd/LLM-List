@@ -2,6 +2,8 @@ import json
 import os
 import glob
 import shutil
+import subprocess
+import sys
 from datetime import datetime
 try:
     from generate_schema import generate_schema
@@ -144,6 +146,37 @@ def merge_registry():
                     print(f"Cleaned up old file: {os.path.relpath(old_file, root_dir)}")
                 except Exception as e:
                     print(f"Failed to delete old file {old_file}: {e}")
+
+        # 4. Verify SDKs
+        print("\nRunning SDK Verification...")
+        
+        # JS Verification
+        print("\n[JS SDK] Verifying...")
+        try:
+            subprocess.run(["npm", "test"], cwd=os.path.join(root_dir, 'sdks', 'js'), check=True)
+            print("✓ JS SDK Verified")
+        except subprocess.CalledProcessError:
+            print("✗ JS SDK Verification Failed")
+            # Don't exit yet, try others
+        
+        # Python Verification
+        print("\n[Python SDK] Verifying...")
+        try:
+            subprocess.run([sys.executable, "-m", "unittest", "discover", "tests"], cwd=os.path.join(root_dir, 'sdks', 'python'), check=True)
+            print("✓ Python SDK Verified")
+        except subprocess.CalledProcessError:
+            print("✗ Python SDK Verification Failed")
+
+        # Go Verification
+        print("\n[Go SDK] Verifying...")
+        try:
+            subprocess.run(["go", "test", "./..."], cwd=os.path.join(root_dir, 'sdks', 'go'), check=True)
+            print("✓ Go SDK Verified")
+        except subprocess.CalledProcessError:
+            print("✗ Go SDK Verification Failed")
+
+    except Exception as e:
+        print(f"Error writing output file: {e}")
 
 
         print(f"Total providers: {len(registry['providers'])}")

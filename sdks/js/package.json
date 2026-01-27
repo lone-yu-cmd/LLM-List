@@ -4,7 +4,7 @@
   "description": "Standardized LLM registry data",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Tests are managed in root scripts/test_registry_data.py\" && exit 0"
+    "test": "node test/verify.js"
   },
   "keywords": [
     "llm",

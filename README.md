@@ -33,19 +33,40 @@ LLM-List/
 ├── schema/                    # JSON Schema 定义文件
 ├── scripts/                   # 维护脚本
 │   ├── build_registry.py      # 构建脚本
+│   ├── generate_schema.py     # Schema 生成脚本
 │   ├── validate_format.py     # Schema 格式校验脚本
 │   ├── crawl_api_docs.py      # API 文档爬虫脚本
 │   └── scrape_content.py      # 文档内容抓取脚本
-├── sdks/                      # (计划中) 多语言 SDK
-│   ├── python/
-│   ├── go/
-│   └── nodejs/
+├── sdks/                      # 多语言 SDK
+│   ├── python/                # Python SDK (llm-list)
+│   ├── go/                    # Go SDK (github.com/lone-yu-cmd/LLM-List/sdks/go)
+│   └── js/                    # Node.js SDK (llm-list)
 ├── LICENSE                    # MIT 许可证
 ├── README.md                  # 项目说明
+├── SDK_USAGE.md               # SDK 使用指南
 └── CONTRIBUTING.md            # 贡献指南
 ```
 
 ## 🚀 快速开始
+
+### 📦 使用 SDK (推荐)
+
+我们提供了 Python, Node.js 和 Go 的官方 SDK。详细安装和使用说明请参考 [SDK 使用指南](SDK_USAGE.md)。
+
+**Python**
+```bash
+pip install "git+https://github.com/lone-yu-cmd/LLM-List.git#subdirectory=sdks/python"
+```
+
+**Node.js**
+```bash
+npm install github:lone-yu-cmd/LLM-List#subdirectory=sdks/js
+```
+
+**Go**
+```bash
+go get github.com/lone-yu-cmd/LLM-List/sdks/go
+```
 
 ### 直接使用 JSON 数据
 
