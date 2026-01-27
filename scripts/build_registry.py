@@ -1,7 +1,14 @@
 import json
 import os
 import glob
+import shutil
 from datetime import datetime
+try:
+    from generate_schema import generate_schema
+except ImportError:
+    # Handle case where script is run from root
+    sys.path.append(os.path.join(os.path.dirname(__file__)))
+    from generate_schema import generate_schema
 
 def resolve_refs(data, base_dir):
     """
@@ -49,6 +56,13 @@ def merge_registry():
     # Path to providers directory
     providers_dir = os.path.join(root_dir, 'registry', 'providers')
     
+    # 0. Generate Schema first
+    print("Generating updated JSON Schema...")
+    try:
+        generate_schema()
+    except Exception as e:
+        print(f"Warning: Schema generation failed: {e}")
+
     # Check if directory exists
     if not os.path.exists(providers_dir):
         print(f"Directory not found: {providers_dir}")
@@ -86,19 +100,51 @@ def merge_registry():
         print(f"\nSuccessfully generated {output_path}")
 
         # Distribute to SDKs
-        sdk_targets = [
-            os.path.join(root_dir, 'sdks', 'js', 'llm_registry.json'),
-            os.path.join(root_dir, 'sdks', 'python', 'llm_list', 'llm_registry.json'),
-            os.path.join(root_dir, 'sdks', 'go', 'llm_registry.json')
-        ]
+        # Target map: registry_path -> schema_dir
+        # We now output registry to 'data/' subdirectory in each SDK
+        sdk_targets = {
+            os.path.join(root_dir, 'sdks', 'js', 'data', 'llm_registry.json'): 
+                os.path.join(root_dir, 'sdks', 'js', 'schema'),
+            
+            os.path.join(root_dir, 'sdks', 'python', 'llm_list', 'data', 'llm_registry.json'):
+                os.path.join(root_dir, 'sdks', 'python', 'llm_list', 'schema'),
+                
+            os.path.join(root_dir, 'sdks', 'go', 'data', 'llm_registry.json'):
+                os.path.join(root_dir, 'sdks', 'go', 'schema')
+        }
+        
+        schema_source = os.path.join(root_dir, 'schema', 'llm_registry_schema.json')
 
-        for target_path in sdk_targets:
+        for target_path, schema_dir in sdk_targets.items():
             # Ensure the directory exists
             os.makedirs(os.path.dirname(target_path), exist_ok=True)
             
+            # 1. Sync Registry JSON
             with open(target_path, 'w', encoding='utf-8') as f:
                 json.dump(registry, f, indent=2, ensure_ascii=False)
-            print(f"Successfully synced to {os.path.relpath(target_path, root_dir)}")
+            
+            # 2. Sync Schema JSON
+            if os.path.exists(schema_source):
+                os.makedirs(schema_dir, exist_ok=True)
+                shutil.copy2(schema_source, os.path.join(schema_dir, 'llm_registry_schema.json'))
+                print(f"Successfully synced registry and schema to {os.path.relpath(os.path.dirname(target_path), root_dir)}")
+            else:
+                print(f"Warning: Schema source not found at {schema_source}")
+            
+            # 3. Cleanup old files (if they exist in the parent directory)
+            # target_path is like .../sdks/js/data/llm_registry.json
+            # parent is .../sdks/js/data
+            # grand_parent is .../sdks/js
+            # We want to delete .../sdks/js/llm_registry.json
+            grand_parent = os.path.dirname(os.path.dirname(target_path))
+            old_file = os.path.join(grand_parent, 'llm_registry.json')
+            if os.path.exists(old_file):
+                try:
+                    os.remove(old_file)
+                    print(f"Cleaned up old file: {os.path.relpath(old_file, root_dir)}")
+                except Exception as e:
+                    print(f"Failed to delete old file {old_file}: {e}")
+
 
         print(f"Total providers: {len(registry['providers'])}")
     except Exception as e:

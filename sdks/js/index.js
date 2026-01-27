@@ -1,4 +1,4 @@
-const registry = require('./llm_registry.json');
+const registry = require('./data/llm_registry.json');
 
 class LLMRegistry {
   constructor(data) {

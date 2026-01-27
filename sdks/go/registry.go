@@ -6,7 +6,7 @@ import (
 	"fmt"
 )
 
-//go:embed llm_registry.json
+//go:embed data/llm_registry.json
 var RegistryJSON []byte
 
 // Registry represents the root structure of the registry

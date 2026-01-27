@@ -15,13 +15,13 @@ class LLMRegistry:
         """
         try:
             # Try loading from package data first
-            data_path = pkg_resources.resource_filename('llm_list', 'llm_registry.json')
+            data_path = pkg_resources.resource_filename('llm_list', 'data/llm_registry.json')
             with open(data_path, 'r', encoding='utf-8') as f:
                 return json.load(f)
         except Exception:
             # Fallback to local file if not installed as package
             current_dir = os.path.dirname(__file__)
-            local_path = os.path.join(current_dir, 'llm_registry.json')
+            local_path = os.path.join(current_dir, 'data', 'llm_registry.json')
             if os.path.exists(local_path):
                 with open(local_path, 'r', encoding='utf-8') as f:
                     return json.load(f)
