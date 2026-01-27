@@ -2,6 +2,7 @@
   "name": "llm-list",
   "version": "1.0.0",
   "description": "Standardized LLM registry data",
+  "type": "module",
   "main": "index.js",
   "scripts": {
     "test": "node test/verify.js"

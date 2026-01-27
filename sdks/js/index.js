@@ -1,8 +1,8 @@
-const registry = require('./data/llm_registry.json');
+import registryData from './data/llm_registry.json' with { type: "json" };
 
-class LLMRegistry {
+export class LLMRegistry {
   constructor(data) {
-    this.registry = data || registry;
+    this.registry = data || registryData;
   }
 
   /**
@@ -68,5 +68,4 @@ class LLMRegistry {
 
 // Export a default instance
 const defaultRegistry = new LLMRegistry();
-module.exports = defaultRegistry;
-module.exports.LLMRegistry = LLMRegistry;
+export default defaultRegistry;

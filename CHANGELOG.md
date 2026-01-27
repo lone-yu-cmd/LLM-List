@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - standardize registry structure and complete missing provider data
 
 ### Documentation
+- update JS SDK installation instructions and convert to ES modules
 - Add specifications for Core Registry and DeepSeek integration
 
 ### Added

@@ -1,5 +1,5 @@
-const assert = require('assert');
-const registry = require('../index');
+import assert from 'assert';
+import registry from '../index.js';
 
 console.log('Running JS SDK Verification...');
 

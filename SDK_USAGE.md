@@ -38,7 +38,16 @@ for model in openai_models:
 ## 2. Node.js (JavaScript) SDK
 
 ### 安装
-**方式 A: 本地依赖 (推荐)**
+**方式 A: 从 NPM 安装 (推荐)**
+```bash
+npm install llm-list
+# 或者
+pnpm add llm-list
+# 或者
+yarn add llm-list
+```
+
+**方式 B: 本地依赖 (用于开发调试)**
 在你的 `package.json` 中添加：
 ```json
 {
@@ -47,9 +56,9 @@ for model in openai_models:
   }
 }
 ```
-然后运行 `npm install`。
+然后运行安装命令。
 
-**方式 B: npm install 从 Git 安装 (仅限根目录)**
+**方式 C: 从 Git 安装**
 *注意：标准 npm 不支持直接安装 Git 仓库的子目录。*
 如果您想通过 Git 安装，建议克隆整个仓库并使用 `npm link` 或 `file:` 协议。
 或者，如果您使用 Yarn (v2+)，可以使用：

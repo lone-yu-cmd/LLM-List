@@ -6,6 +6,10 @@ Standardized LLM registry data for Node.js.
 
 ```bash
 npm install llm-list
+# or
+pnpm add llm-list
+# or
+yarn add llm-list
 ```
 
 ## Usage
