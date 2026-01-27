@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+- update model connectivity validation and registry
+
 ### Changed
 - standardize registry structure and complete missing provider data
 

@@ -302,42 +302,6 @@
           ],
           "context_window": 1000000,
           "max_output_tokens": 8192
-        },
-        {
-          "id": "gemini-1.5-pro",
-          "name": "Gemini 1.5 Pro",
-          "type": "chat",
-          "description": "Mid-size multimodal model with massive 2M token context window.",
-          "features": [
-            "multimodal",
-            "long-context"
-          ],
-          "context_window": 2000000,
-          "max_output_tokens": 8192
-        },
-        {
-          "id": "gemini-1.5-flash",
-          "name": "Gemini 1.5 Flash",
-          "type": "chat",
-          "description": "Fast and versatile multimodal model for high-frequency tasks.",
-          "features": [
-            "multimodal",
-            "fast"
-          ],
-          "context_window": 1000000,
-          "max_output_tokens": 8192
-        },
-        {
-          "id": "gemma-3",
-          "name": "Gemma 3",
-          "type": "chat",
-          "description": "Open model featuring text and image input with 128K context.",
-          "features": [
-            "open-weight",
-            "text-to-image"
-          ],
-          "context_window": 128000,
-          "max_output_tokens": 8192
         }
       ]
     },
@@ -470,52 +434,6 @@
           "description": "Smartest non-reasoning model.",
           "features": [
             "non-reasoning"
-          ],
-          "context_window": 128000,
-          "max_output_tokens": 16384
-        },
-        {
-          "id": "gpt-oss-120b",
-          "name": "GPT-OSS 120B",
-          "type": "chat",
-          "description": "Most powerful open-weight model, fits into an H100 GPU.",
-          "features": [
-            "open-weight"
-          ],
-          "context_window": 128000,
-          "max_output_tokens": 4096
-        },
-        {
-          "id": "gpt-oss-20b",
-          "name": "GPT-OSS 20B",
-          "type": "chat",
-          "description": "Medium-sized open-weight model for low latency.",
-          "features": [
-            "open-weight",
-            "low-latency"
-          ],
-          "context_window": 32768,
-          "max_output_tokens": 4096
-        },
-        {
-          "id": "o3-deep-research",
-          "name": "o3 Deep Research",
-          "type": "chat",
-          "description": "Our most powerful deep research model.",
-          "features": [
-            "research"
-          ],
-          "context_window": 200000,
-          "max_output_tokens": 32768
-        },
-        {
-          "id": "o4-mini-deep-research",
-          "name": "o4 Mini Deep Research",
-          "type": "chat",
-          "description": "Faster, more affordable deep research model.",
-          "features": [
-            "research",
-            "fast"
           ],
           "context_window": 128000,
           "max_output_tokens": 16384
@@ -1006,24 +924,23 @@
       "pricing_currency": "CNY",
       "models": [
         {
-          "id": "glm-4-plus",
-          "name": "GLM-4 Plus",
+          "id": "glm-4.5",
+          "name": "GLM-4.5",
           "type": "chat",
-          "description": "High-Intelligence Flagship: Comprehensive performance enhancement with significantly improved capabilities for long texts and complex tasks.",
+          "description": "Latest flagship model (2025) with enhanced capabilities.",
           "context_window": 128000,
           "max_output_tokens": 4096,
           "features": [
             "tool_calling",
             "web_search",
-            "retrieval",
             "function_calling"
           ]
         },
         {
-          "id": "glm-4-air-250414",
-          "name": "GLM-4 Air (250414)",
+          "id": "glm-4.5-air",
+          "name": "GLM-4.5 Air",
           "type": "chat",
-          "description": "High Cost-Effectiveness: The model that offers the best balance between reasoning capabilities and price.",
+          "description": "Cost-effective version of GLM-4.5.",
           "context_window": 128000,
           "max_output_tokens": 16384,
           "features": [
@@ -1033,11 +950,11 @@
           ]
         },
         {
-          "id": "glm-4-long",
-          "name": "GLM-4 Long",
+          "id": "glm-4.6",
+          "name": "GLM-4.6",
           "type": "chat",
-          "description": "Ultra-Long Input: Specifically designed for handling extremely long texts and memory-intensive tasks.",
-          "context_window": 1000000,
+          "description": "Next-generation model (2025).",
+          "context_window": 128000,
           "max_output_tokens": 4096,
           "features": [
             "tool_calling",
@@ -1046,269 +963,16 @@
           ]
         },
         {
-          "id": "glm-4-airx",
-          "name": "GLM-4 AirX",
+          "id": "glm-4.7",
+          "name": "GLM-4.7",
           "type": "chat",
-          "description": "Ultra-Fast Inference: Featuring extremely fast reasoning speed and powerful reasoning performance.",
-          "context_window": 8192,
+          "description": "Advanced reasoning model (2026).",
+          "context_window": 128000,
           "max_output_tokens": 4096,
           "features": [
             "tool_calling",
+            "web_search",
             "function_calling"
-          ]
-        },
-        {
-          "id": "glm-4-flashx-250414",
-          "name": "GLM-4 FlashX (250414)",
-          "type": "chat",
-          "description": "High-Speed, Low-Cost: Flash-enhanced version, featuring ultra-fast inference speed and higher concurrency guarantees.",
-          "context_window": 128000,
-          "max_output_tokens": 16384,
-          "features": [
-            "function_calling"
-          ]
-        },
-        {
-          "id": "glm-4-flash-250414",
-          "name": "GLM-4 Flash (250414)",
-          "type": "chat",
-          "description": "Free Model: Zero-cost access to the language model.",
-          "context_window": 128000,
-          "max_output_tokens": 16384,
-          "features": [
-            "function_calling",
-            "free"
-          ]
-        },
-        {
-          "id": "glm-z1-air",
-          "name": "GLM-Z1 Air",
-          "type": "reasoning",
-          "description": "Reasoning Model: Equipped with strong reasoning capabilities, suitable for tasks requiring deep reasoning.",
-          "context_window": 128000,
-          "max_output_tokens": 32768,
-          "features": [
-            "reasoning"
-          ]
-        },
-        {
-          "id": "glm-z1-airx",
-          "name": "GLM-Z1 AirX",
-          "type": "reasoning",
-          "description": "Ultra-Fast Inference: Featuring extremely fast inference speed (up to 200 tokens/s).",
-          "context_window": 32768,
-          "max_output_tokens": 30720,
-          "features": [
-            "reasoning",
-            "fast"
-          ]
-        },
-        {
-          "id": "glm-z1-flashx",
-          "name": "GLM-Z1 FlashX",
-          "type": "reasoning",
-          "description": "High-Speed, Low-Cost: Flash-enhanced version with ultra-fast inference speed and even greater concurrency guarantees.",
-          "context_window": 128000,
-          "max_output_tokens": 32768,
-          "features": [
-            "reasoning"
-          ]
-        },
-        {
-          "id": "glm-z1-flash",
-          "name": "GLM-Z1 Flash",
-          "type": "reasoning",
-          "description": "Free Inference: Free inference API, enabling zero-cost access to large reasoning models.",
-          "context_window": 128000,
-          "max_output_tokens": 32768,
-          "features": [
-            "reasoning",
-            "free"
-          ]
-        },
-        {
-          "id": "glm-4.1v-thinking-flash",
-          "name": "GLM-4.1V Thinking Flash",
-          "type": "chat",
-          "description": "Visual Reasoning: The strongest visual reasoning model in the 10B size class.",
-          "context_window": 65536,
-          "features": [
-            "vision",
-            "reasoning"
-          ]
-        },
-        {
-          "id": "glm-4v-plus-0111",
-          "name": "GLM-4V Plus (0111)",
-          "type": "chat",
-          "description": "Image/Video Understanding: Outstanding multimodal understanding, processing up to 5 images or 2h video.",
-          "context_window": 16384,
-          "features": [
-            "vision",
-            "video-understanding"
-          ]
-        },
-        {
-          "id": "glm-4v-flash",
-          "name": "GLM-4V Flash",
-          "type": "chat",
-          "description": "Free Model: Supports single-image understanding for basic image analysis.",
-          "context_window": 4096,
-          "features": [
-            "vision",
-            "free"
-          ]
-        },
-        {
-          "id": "cogvideox-3",
-          "name": "CogVideoX-3",
-          "type": "video",
-          "description": "Video Generation: Significant improvements in image quality, stability, and physical realism simulation.",
-          "features": [
-            "video-generation"
-          ]
-        },
-        {
-          "id": "cogvideox-2",
-          "name": "CogVideoX-2",
-          "type": "video",
-          "description": "Video Generation: Easily create videos using text or images as input.",
-          "features": [
-            "video-generation"
-          ]
-        },
-        {
-          "id": "cogvideox-flash",
-          "name": "CogVideoX Flash",
-          "type": "video",
-          "description": "Video Generation: A free and user-friendly video generation model.",
-          "features": [
-            "video-generation",
-            "free"
-          ]
-        },
-        {
-          "id": "vidu-q1",
-          "name": "Vidu Q1",
-          "type": "video",
-          "description": "Video Generation: Focused on high-quality video creation for film, ads, and anime.",
-          "features": [
-            "video-generation"
-          ]
-        },
-        {
-          "id": "vidu-2",
-          "name": "Vidu 2",
-          "type": "video",
-          "description": "Video Generation: Balanced speed and quality, focusing on image-to-video and start/end frame functions.",
-          "features": [
-            "video-generation"
-          ]
-        },
-        {
-          "id": "cogview-4",
-          "name": "CogView-4",
-          "type": "image",
-          "description": "Image Generation: Strong complex semantic alignment, supports any length Chinese/English input.",
-          "features": [
-            "image-generation"
-          ]
-        },
-        {
-          "id": "cogview-3-flash",
-          "name": "CogView-3 Flash",
-          "type": "image",
-          "description": "Free Model: A free image generation model.",
-          "features": [
-            "image-generation",
-            "free"
-          ]
-        },
-        {
-          "id": "glm-realtime",
-          "name": "GLM-Realtime",
-          "type": "realtime",
-          "description": "Real-Time Video Call: Capable of real-time reasoning across text, audio, and video.",
-          "context_window": 8192,
-          "max_output_tokens": 1024,
-          "features": [
-            "realtime",
-            "audio",
-            "video"
-          ]
-        },
-        {
-          "id": "glm-4-voice",
-          "name": "GLM-4 Voice",
-          "type": "audio",
-          "description": "End-to-End Speech Model: Directly understand and generate Chinese/English speech.",
-          "context_window": 8192,
-          "max_output_tokens": 4096,
-          "features": [
-            "audio"
-          ]
-        },
-        {
-          "id": "charglm-4",
-          "name": "CharGLM-4",
-          "type": "chat",
-          "description": "Humanlike Model: Suitable for emotional companionship and virtual characters.",
-          "context_window": 8192,
-          "max_output_tokens": 4096,
-          "features": [
-            "roleplay"
-          ]
-        },
-        {
-          "id": "emohaa",
-          "name": "Emohaa",
-          "type": "chat",
-          "description": "Psychological Model: Professional counseling capabilities for emotional support.",
-          "context_window": 8192,
-          "max_output_tokens": 4096,
-          "features": [
-            "counseling"
-          ]
-        },
-        {
-          "id": "codegeex-4",
-          "name": "CodeGeeX-4",
-          "type": "chat",
-          "description": "Code Model: Suitable for code auto-completion tasks.",
-          "context_window": 128000,
-          "max_output_tokens": 32768,
-          "features": [
-            "coding"
-          ]
-        },
-        {
-          "id": "rerank",
-          "name": "Rerank",
-          "type": "rerank",
-          "description": "Reranking Model: Computes score values between texts and reranks retrieval results.",
-          "context_window": 4096,
-          "features": [
-            "rerank"
-          ]
-        },
-        {
-          "id": "embedding-3",
-          "name": "Embedding-3",
-          "type": "embedding",
-          "description": "Latest text embedding model with improved performance.",
-          "max_input_tokens": 8192,
-          "features": [
-            "embedding"
-          ]
-        },
-        {
-          "id": "embedding-2",
-          "name": "Embedding-2",
-          "type": "embedding",
-          "description": "General text embedding model.",
-          "max_input_tokens": 8192,
-          "features": [
-            "embedding"
           ]
         }
       ]

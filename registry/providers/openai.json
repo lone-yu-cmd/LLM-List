@@ -95,42 +95,6 @@
       "max_output_tokens": 16384
     },
     {
-      "id": "gpt-oss-120b",
-      "name": "GPT-OSS 120B",
-      "type": "chat",
-      "description": "Most powerful open-weight model, fits into an H100 GPU.",
-      "features": ["open-weight"],
-      "context_window": 128000,
-      "max_output_tokens": 4096
-    },
-    {
-      "id": "gpt-oss-20b",
-      "name": "GPT-OSS 20B",
-      "type": "chat",
-      "description": "Medium-sized open-weight model for low latency.",
-      "features": ["open-weight", "low-latency"],
-      "context_window": 32768,
-      "max_output_tokens": 4096
-    },
-    {
-      "id": "o3-deep-research",
-      "name": "o3 Deep Research",
-      "type": "chat",
-      "description": "Our most powerful deep research model.",
-      "features": ["research"],
-      "context_window": 200000,
-      "max_output_tokens": 32768
-    },
-    {
-      "id": "o4-mini-deep-research",
-      "name": "o4 Mini Deep Research",
-      "type": "chat",
-      "description": "Faster, more affordable deep research model.",
-      "features": ["research", "fast"],
-      "context_window": 128000,
-      "max_output_tokens": 16384
-    },
-    {
       "id": "sora-2",
       "name": "Sora 2",
       "type": "video",

@@ -62,33 +62,6 @@
       "features": ["multimodal", "fast", "real-time"],
       "context_window": 1000000,
       "max_output_tokens": 8192
-    },
-    {
-      "id": "gemini-1.5-pro",
-      "name": "Gemini 1.5 Pro",
-      "type": "chat",
-      "description": "Mid-size multimodal model with massive 2M token context window.",
-      "features": ["multimodal", "long-context"],
-      "context_window": 2000000,
-      "max_output_tokens": 8192
-    },
-    {
-      "id": "gemini-1.5-flash",
-      "name": "Gemini 1.5 Flash",
-      "type": "chat",
-      "description": "Fast and versatile multimodal model for high-frequency tasks.",
-      "features": ["multimodal", "fast"],
-      "context_window": 1000000,
-      "max_output_tokens": 8192
-    },
-    {
-      "id": "gemma-3",
-      "name": "Gemma 3",
-      "type": "chat",
-      "description": "Open model featuring text and image input with 128K context.",
-      "features": ["open-weight", "text-to-image"],
-      "context_window": 128000,
-      "max_output_tokens": 8192
     }
   ]
 }
